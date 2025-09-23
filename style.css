@@ -727,24 +727,24 @@ body {
 
   /* Hero Section */
   .hero {
-    padding: 1.5rem 1rem; /* Reduced padding for mobile */
+    padding: 1rem; /* Reduced padding for mobile */
     margin-top: 40px; /* Adjusted for smaller navbar */
     background-color: #000; /* Maintain black background */
+    max-height: calc(100vh - 40px); /* Limit height to viewport minus navbar */
+    overflow-y: auto; /* Enable vertical scrolling */
+    box-sizing: border-box; /* Prevent overflow */
   }
 
   .hero-content {
     display: flex;
-    flex-direction: row; /* Side-by-side layout */
-    flex-wrap: nowrap; /* Prevent wrapping */
-    align-items: center; /* Align items vertically */
-    justify-content: space-between; /* Space out text and image */
-    gap: 1rem; /* Space between text and image */
+    flex-direction: column; /* Stack image above text */
+    align-items: center; /* Center content horizontally */
+    gap: 1rem; /* Space between image and text */
   }
 
   .hero-content .text {
-    flex: 1; /* Take available space */
     text-align: left; /* Align text to the left */
-    max-width: 50%; /* Limit width to avoid overflow */
+    max-width: 100%; /* Full width for text content */
   }
 
   .hero-content h1 {
@@ -796,7 +796,6 @@ body {
   .profile-pic {
     width: 150px; /* Smaller image size for mobile */
     height: 150px;
-    flex: 0 0 auto; /* Prevent stretching */
     margin: 0; /* Remove extra margins */
     border-radius: 50%;
     background-color: #ccc;
@@ -1048,17 +1047,18 @@ body {
   /* Hero Section */
   .hero {
     padding: 1rem; /* Further reduced padding */
+    max-height: calc(100vh - 40px); /* Limit height to viewport minus navbar */
+    overflow-y: auto; /* Enable vertical scrolling */
   }
 
   .hero-content {
-    flex-direction: row; /* Side-by-side layout */
-    flex-wrap: nowrap; /* Prevent wrapping */
+    flex-direction: column; /* Stack image above text */
     gap: 0.8rem; /* Smaller gap */
-    justify-content: space-between;
+    align-items: center; /* Center content */
   }
 
   .hero-content .text {
-    max-width: 45%; /* Tighter width to fit beside image */
+    max-width: 100%; /* Full width */
     text-align: left;
   }
 
