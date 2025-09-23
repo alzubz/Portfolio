@@ -684,10 +684,12 @@ body {
     gap: 0.6rem; /* Reduced gap to fit links */
     align-items: center;
     flex-wrap: nowrap; /* Prevent wrapping to ensure single line */
+    margin-right: 1rem; /* Add margin to create space between links and icons */
+    justify-content: flex-start; /* Align links to the left */
   }
 
   .nav-links a {
-    font-size: 0.7rem; /* Smaller font size to prevent wrapping */
+    font-size: 0.65rem; /* Slightly smaller font size to prevent wrapping */
     white-space: nowrap; /* Prevent text from breaking into multiple lines */
     padding: 0 0.3rem; /* Minimal padding to save space */
   }
@@ -704,13 +706,23 @@ body {
     margin-left: 0; /* Remove extra margin */
   }
 
-  .linkedin-icon,
-  .instagram-icon,
+  .linkedin-icon {
+    width: 20px !important; /* Increased size for LinkedIn */
+    height: 20px !important;
+    margin-right: 0;
+  }
+
+  .instagram-icon {
+    width: 20px !important; /* Increased size for Instagram */
+    height: 20px !important;
+    margin-right: 0;
+  }
+
   .twitter-icon,
   .whatsapp-icon {
-    width: 16px !important; /* Smaller icon sizes */
+    width: 16px !important; /* Keep original size */
     height: 16px !important;
-    margin-right: 0; /* Remove extra margin */
+    margin-right: 0;
   }
 
   /* Hero Section */
@@ -922,10 +934,12 @@ body {
     gap: 0.4rem; /* Smaller gap to fit links */
     align-items: center;
     flex-wrap: nowrap; /* Prevent wrapping */
+    margin-right: 0.8rem; /* Add margin to create space between links and icons */
+    justify-content: flex-start; /* Align links to the left */
   }
 
   .nav-links a {
-    font-size: 0.6rem; /* Further reduced font size to prevent wrapping */
+    font-size: 0.55rem; /* Further reduced font size to prevent wrapping */
     white-space: nowrap; /* Prevent text from breaking */
     padding: 0 0.2rem; /* Minimal padding */
   }
@@ -937,11 +951,19 @@ body {
     flex-wrap: nowrap; /* Prevent wrapping */
   }
 
-  .linkedin-icon,
-  .instagram-icon,
+  .linkedin-icon {
+    width: 18px !important; /* Slightly smaller increased size for LinkedIn */
+    height: 18px !important;
+  }
+
+  .instagram-icon {
+    width: 18px !important; /* Slightly smaller increased size for Instagram */
+    height: 18px !important;
+  }
+
   .twitter-icon,
   .whatsapp-icon {
-    width: 14px !important; /* Smaller icons for very small screens */
+    width: 14px !important; /* Keep original size */
     height: 14px !important;
   }
 
