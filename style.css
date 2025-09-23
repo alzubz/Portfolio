@@ -795,18 +795,18 @@ body {
   }
 
   .contact-right {
-    text-align: right; /* Align email title to the right */
+    text-align: left; /* Align email title to the start of the form */
     flex: 1; /* Take available space */
-    min-width: 120px; /* Ensure enough space for email title */
+    min-width: 120px; /* Ensure enough space for email title and form */
     display: flex;
     flex-direction: column; /* Stack title and form vertically */
-    align-items: flex-end; /* Align content to the right */
+    align-items: flex-start; /* Align content to the start (left) of the form */
   }
 
   .contact-right h2 {
-    font-size: 0.9rem; /* Smaller font size for mobile */
+    font-size: 0.8rem; /* Even smaller font size for mobile */
     color: black;
-    margin: 0 0 0.5rem 0; /* Space below title */
+    margin: 0 0 0.5rem 0.4rem; /* Align with form padding */
     line-height: 1.2; /* Ensure no extra vertical space */
   }
 
@@ -1005,7 +1005,7 @@ body {
   /* Contact Section (Footer) */
   .contact {
     padding: 0.8rem; /* Further reduced padding */
-    flex-direction: row; /* Keep horizontal layout for name and email title */
+    flex-direction: row; /* Horizontal layout for name and email title */
     justify-content: space-between; /* Space out left and right */
     align-items: flex-start; /* Align items to top */
     gap: 0.5rem; /* Reduced gap */
@@ -1019,30 +1019,30 @@ body {
   }
 
   .contact-left h2 {
-    font-size: 0.8rem; /* Smaller font size for very small screens */
+    font-size: 0.7rem; /* Smaller font size for very small screens */
     color: black;
     margin: 0;
     line-height: 1.2; /* Ensure no extra vertical space */
   }
 
   .contact-right {
-    text-align: right; /* Align email title to the right */
+    text-align: left; /* Align email title to the start of the form */
     flex: 1; /* Take available space */
-    min-width: 100px; /* Ensure enough space for email title */
+    min-width: 100px; /* Ensure enough space for email title and form */
     display: flex;
     flex-direction: column; /* Stack title and form vertically */
-    align-items: flex-end; /* Align content to the right */
+    align-items: flex-start; /* Align content to the start (left) of the form */
   }
 
   .contact-right h2 {
-    font-size: 0.8rem; /* Smaller font size */
+    font-size: 0.7rem; /* Even smaller font size for very small screens */
     color: black;
-    margin: 0 0 0.4rem 0; /* Reduced space below title */
+    margin: 0 0 0.4rem 0.3rem; /* Align with form padding */
     line-height: 1.2; /* Ensure no extra vertical space */
   }
 
   .contact-right form {
-    width: 160px; /* Smaller fixed width to prevent spanning entire footer */
+    width: 140px; /* Smaller fixed width to prevent spanning entire footer */
     padding: 0.3rem; /* Smaller padding */
     background-color: white;
     border-radius: 6px;
