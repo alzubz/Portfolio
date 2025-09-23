@@ -673,7 +673,7 @@ body {
     padding: 0 0.5rem; /* Reduced padding for smaller screens */
     height: 40px; /* Reduced height for mobile */
     display: flex;
-    flex-direction: row; /* Ensure horizontal layout */
+    flex-direction: row; /* Horizontal layout */
     align-items: center;
     justify-content: space-between;
   }
@@ -681,19 +681,23 @@ body {
   .nav-links {
     display: flex;
     flex-direction: row; /* Horizontal layout for nav links */
-    gap: 0.8rem; /* Smaller gap between links */
+    gap: 0.6rem; /* Reduced gap to fit links */
     align-items: center;
+    flex-wrap: nowrap; /* Prevent wrapping to ensure single line */
   }
 
   .nav-links a {
-    font-size: 0.75rem; /* Smaller font size for links */
+    font-size: 0.7rem; /* Smaller font size to prevent wrapping */
+    white-space: nowrap; /* Prevent text from breaking into multiple lines */
+    padding: 0 0.3rem; /* Minimal padding to save space */
   }
 
   .nav-right {
     display: flex;
     flex-direction: row; /* Horizontal layout for social icons */
     align-items: center;
-    gap: 8px; /* Reduced gap for social icons */
+    gap: 6px; /* Reduced gap for social icons */
+    flex-wrap: nowrap; /* Prevent wrapping */
   }
 
   .nav-right span {
@@ -915,18 +919,22 @@ body {
 
   .nav-links {
     flex-direction: row; /* Horizontal layout for nav links */
-    gap: 0.5rem; /* Smaller gap */
+    gap: 0.4rem; /* Smaller gap to fit links */
     align-items: center;
+    flex-wrap: nowrap; /* Prevent wrapping */
   }
 
   .nav-links a {
-    font-size: 0.65rem; /* Smaller font size for very small screens */
+    font-size: 0.6rem; /* Further reduced font size to prevent wrapping */
+    white-space: nowrap; /* Prevent text from breaking */
+    padding: 0 0.2rem; /* Minimal padding */
   }
 
   .nav-right {
     flex-direction: row; /* Horizontal layout for social icons */
-    gap: 6px; /* Smaller gap */
+    gap: 5px; /* Smaller gap */
     align-items: center;
+    flex-wrap: nowrap; /* Prevent wrapping */
   }
 
   .linkedin-icon,
