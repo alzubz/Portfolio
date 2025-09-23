@@ -770,30 +770,57 @@ body {
     height: 50px;
   }
 
-  /* Contact Section */
+  /* Contact Section (Footer) */
   .contact {
-    padding: 1.5rem;
-    flex-direction: column;
-    gap: 1.5rem;
+    padding: 1.5rem 1rem; /* Adjusted padding for mobile */
+    flex-direction: row; /* Horizontal layout for larger mobile screens */
+    justify-content: space-between; /* Space out left and right sections */
+    align-items: center;
+    gap: 1rem; /* Space between left and right */
+    background-color: #59b014; /* Maintain green background */
   }
 
-  .contact-left h2,
+  .contact-left {
+    text-align: left; /* Align "Zubairu S. Abdullahi" to the left */
+    flex: 1; /* Take available space */
+  }
+
+  .contact-left h2 {
+    font-size: 1.2rem; /* Smaller font size for mobile */
+    color: black;
+    margin: 0;
+  }
+
+  .contact-right {
+    text-align: right; /* Align email form to the right */
+    flex: 1; /* Take available space */
+  }
+
   .contact-right h2 {
-    font-size: 1.5rem;
-    text-align: center;
+    font-size: 1.2rem; /* Smaller font size for mobile */
+    color: black;
+    margin: 0 0 0.5rem 0; /* Space above email form */
   }
 
   .contact-right form {
-    min-width: 100%;
+    min-width: 150px; /* Reduced width for mobile */
     padding: 0.5rem;
+    background-color: white;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    margin-top: 0.5rem; /* Space above form */
   }
 
   .contact-right input {
     font-size: 0.9rem;
+    padding: 0.5rem;
+    flex: 1;
   }
 
   .contact-right button {
     padding: 0.5rem;
+    font-size: 0.9rem;
   }
 
   /* Case Studies Section */
@@ -967,6 +994,54 @@ body {
     height: 14px !important;
   }
 
+  /* Contact Section (Footer) */
+  .contact {
+    padding: 1rem; /* Further reduced padding */
+    flex-direction: column; /* Stack vertically on very small screens */
+    align-items: flex-start; /* Align content to the left */
+    gap: 1rem; /* Space between elements */
+  }
+
+  .contact-left {
+    text-align: left; /* Align "Zubairu S. Abdullahi" to the left */
+    width: 100%; /* Full width */
+  }
+
+  .contact-left h2 {
+    font-size: 1rem; /* Smaller font size for very small screens */
+    color: black;
+    margin: 0;
+  }
+
+  .contact-right {
+    text-align: left; /* Align email form to the left for consistency */
+    width: 100%; /* Full width to fit the form */
+  }
+
+  .contact-right h2 {
+    font-size: 1rem; /* Smaller font size */
+    color: black;
+    margin: 0.5rem 0; /* Space above and below */
+  }
+
+  .contact-right form {
+    min-width: 100%; /* Full width for the form */
+    padding: 0.5rem;
+    background-color: white;
+    border-radius: 8px;
+    margin-top: 0.5rem; /* Space above form */
+  }
+
+  .contact-right input {
+    font-size: 0.8rem; /* Smaller input text */
+    padding: 0.4rem;
+  }
+
+  .contact-right button {
+    font-size: 0.8rem;
+    padding: 0.4rem;
+  }
+
   .hero-content h1 {
     font-size: 1.5rem;
   }
@@ -982,7 +1057,7 @@ body {
 
   .contact-left h2,
   .contact-right h2 {
-    font-size: 1.2rem;
+    font-size: 1rem;
   }
 
   .contact-right form {
