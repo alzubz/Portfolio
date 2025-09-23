@@ -672,18 +672,32 @@ body {
   .navbar {
     padding: 0 0.5rem; /* Reduced padding for smaller screens */
     height: 40px; /* Reduced height for mobile */
+    display: flex;
+    flex-direction: row; /* Ensure horizontal layout */
+    align-items: center;
+    justify-content: space-between;
   }
 
   .nav-links {
+    display: flex;
+    flex-direction: row; /* Horizontal layout for nav links */
     gap: 0.8rem; /* Smaller gap between links */
+    align-items: center;
   }
 
   .nav-links a {
     font-size: 0.75rem; /* Smaller font size for links */
   }
 
+  .nav-right {
+    display: flex;
+    flex-direction: row; /* Horizontal layout for social icons */
+    align-items: center;
+    gap: 8px; /* Reduced gap for social icons */
+  }
+
   .nav-right span {
-    margin-left: 8px; /* Reduced margin for social icons */
+    margin-left: 0; /* Remove extra margin */
   }
 
   .linkedin-icon,
@@ -692,7 +706,7 @@ body {
   .whatsapp-icon {
     width: 16px !important; /* Smaller icon sizes */
     height: 16px !important;
-    margin-right: 4px; /* Reduced margin */
+    margin-right: 0; /* Remove extra margin */
   }
 
   /* Hero Section */
@@ -892,23 +906,27 @@ body {
 /* Small Devices (below 480px) */
 @media (max-width: 480px) {
   .navbar {
-    flex-direction: column;
-    height: auto;
     padding: 0.5rem; /* Further reduced padding */
+    height: 40px; /* Keep consistent height */
+    flex-direction: row; /* Horizontal layout */
+    justify-content: space-between;
+    align-items: center;
   }
 
   .nav-links {
-    flex-direction: column;
-    gap: 0.4rem;
-    margin-top: 0.5rem;
+    flex-direction: row; /* Horizontal layout for nav links */
+    gap: 0.5rem; /* Smaller gap */
+    align-items: center;
   }
 
   .nav-links a {
-    font-size: 0.7rem; /* Even smaller font size */
+    font-size: 0.65rem; /* Smaller font size for very small screens */
   }
 
   .nav-right {
-    margin-top: 0.5rem;
+    flex-direction: row; /* Horizontal layout for social icons */
+    gap: 6px; /* Smaller gap */
+    align-items: center;
   }
 
   .linkedin-icon,
@@ -917,7 +935,6 @@ body {
   .whatsapp-icon {
     width: 14px !important; /* Smaller icons for very small screens */
     height: 14px !important;
-    margin-right: 3px;
   }
 
   .hero-content h1 {
@@ -948,8 +965,8 @@ body {
     width: 100%;
   }
 
-  /* Adjust page wrapper for column layout navbar */
+  /* Adjust page wrapper for horizontal navbar */
   .page-wrapper {
-    padding-top: 80px; /* Account for taller navbar in column layout */
+    padding-top: 40px; /* Match navbar height */
   }
 }
