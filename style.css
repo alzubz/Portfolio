@@ -727,47 +727,87 @@ body {
 
   /* Hero Section */
   .hero {
-    padding: 2rem 1rem;
+    padding: 1.5rem 1rem; /* Reduced padding for mobile */
     margin-top: 40px; /* Adjusted for smaller navbar */
+    background-color: #000; /* Maintain black background */
   }
 
   .hero-content {
-    flex-direction: column;
-    text-align: center;
+    display: flex;
+    flex-direction: row; /* Side-by-side layout */
+    flex-wrap: nowrap; /* Prevent wrapping */
+    align-items: center; /* Align items vertically */
+    justify-content: space-between; /* Space out text and image */
+    gap: 1rem; /* Space between text and image */
   }
 
   .hero-content .text {
-    max-width: 100%;
-    margin-bottom: 2rem;
+    flex: 1; /* Take available space */
+    text-align: left; /* Align text to the left */
+    max-width: 50%; /* Limit width to avoid overflow */
   }
 
   .hero-content h1 {
-    font-size: 1.8rem;
+    font-size: 1.5rem; /* Smaller intro text */
+    margin-bottom: 0.8rem;
   }
 
   .hero-content p {
-    font-size: 0.85rem;
+    font-size: 0.8rem; /* Smaller subtext */
+    line-height: 1.4;
+    color: #bbb;
   }
 
   .hero-content button {
-    padding: 0.6rem 1.2rem;
-    font-size: 0.9rem;
+    margin-top: 0.8rem;
+    padding: 0.5rem 1rem; /* Smaller button */
+    font-size: 0.8rem; /* Smaller button text */
+    background-color: limegreen;
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 0 10px limegreen;
   }
 
-  .profile-pic {
-    width: 250px;
-    height: 250px;
-    margin: 0 auto;
+  .worked-on {
+    margin-top: 1.5rem;
   }
 
   .tech-icons {
-    grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(40px, 1fr)); /* Smaller icons */
     gap: 1rem;
+    margin-top: 0.5rem;
+    max-width: 100%; /* Fit within container */
   }
 
   .tech-icons img {
-    width: 50px;
-    height: 50px;
+    width: 40px; /* Smaller tech icons */
+    height: 40px;
+    background-color: white;
+    object-fit: contain;
+    padding: 0.4rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .profile-pic {
+    width: 150px; /* Smaller image size for mobile */
+    height: 150px;
+    flex: 0 0 auto; /* Prevent stretching */
+    margin: 0; /* Remove extra margins */
+    border-radius: 50%;
+    background-color: #ccc;
+  }
+
+  .profile-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid white; /* Adjusted border */
   }
 
   /* Contact Section (Footer) */
@@ -778,8 +818,8 @@ body {
     align-items: flex-start; /* Align items to top */
     gap: 0.5rem; /* Reduced gap for tighter layout */
     background-color: #59b014; /* Maintain green background */
-    flex-wrap: nowrap; /* Prevent wrapping to keep layout tight */
-    box-sizing: border-box; /* Ensure padding doesn't cause overflow */
+    flex-wrap: nowrap; /* Prevent wrapping */
+    box-sizing: border-box; /* Prevent overflow */
   }
 
   .contact-left {
@@ -806,14 +846,14 @@ body {
   }
 
   .contact-right h2 {
-    font-size: 0.8rem; /* Even smaller font size for mobile */
+    font-size: 0.8rem; /* Smaller font size for mobile */
     color: black;
     margin: 0 0 0.5rem 0.4rem; /* Align with form padding */
     line-height: 1.2; /* Ensure no extra vertical space */
   }
 
   .contact-right form {
-    width: 180px; /* Slightly smaller width to prevent overflow */
+    width: 180px; /* Smaller width to prevent overflow */
     padding: 0.4rem; /* Smaller padding */
     background-color: white;
     border-radius: 6px; /* Slightly smaller border radius */
@@ -1005,6 +1045,59 @@ body {
     height: 14px !important;
   }
 
+  /* Hero Section */
+  .hero {
+    padding: 1rem; /* Further reduced padding */
+  }
+
+  .hero-content {
+    flex-direction: row; /* Side-by-side layout */
+    flex-wrap: nowrap; /* Prevent wrapping */
+    gap: 0.8rem; /* Smaller gap */
+    justify-content: space-between;
+  }
+
+  .hero-content .text {
+    max-width: 45%; /* Tighter width to fit beside image */
+    text-align: left;
+  }
+
+  .hero-content h1 {
+    font-size: 1.2rem; /* Smaller intro text */
+  }
+
+  .hero-content p {
+    font-size: 0.7rem; /* Smaller subtext */
+  }
+
+  .hero-content button {
+    padding: 0.4rem 0.8rem; /* Smaller button */
+    font-size: 0.7rem; /* Smaller button text */
+  }
+
+  .worked-on {
+    margin-top: 1rem;
+  }
+
+  .tech-icons {
+    grid-template-columns: repeat(auto-fill, minmax(35px, 1fr)); /* Smaller icons */
+    gap: 0.8rem;
+  }
+
+  .tech-icons img {
+    width: 35px; /* Smaller tech icons */
+    height: 35px;
+  }
+
+  .profile-pic {
+    width: 120px; /* Smaller image size */
+    height: 120px;
+  }
+
+  .profile-pic img {
+    border: 2px solid white; /* Thinner border */
+  }
+
   /* Contact Section (Footer) */
   .contact {
     padding: 0.8rem; /* Further reduced padding */
@@ -1064,19 +1157,6 @@ body {
   .contact-right button {
     font-size: 0.7rem;
     padding: 0.3rem;
-  }
-
-  .hero-content h1 {
-    font-size: 1.5rem;
-  }
-
-  .hero-content p {
-    font-size: 0.8rem;
-  }
-
-  .profile-pic {
-    width: 200px;
-    height: 200px;
   }
 
   /* Adjust page wrapper for horizontal navbar */
