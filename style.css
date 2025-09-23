@@ -778,7 +778,8 @@ body {
     align-items: flex-start; /* Align items to top */
     gap: 0.5rem; /* Reduced gap for tighter layout */
     background-color: #59b014; /* Maintain green background */
-    flex-wrap: wrap; /* Allow wrapping if needed */
+    flex-wrap: nowrap; /* Prevent wrapping to keep layout tight */
+    box-sizing: border-box; /* Ensure padding doesn't cause overflow */
   }
 
   .contact-left {
@@ -796,11 +797,12 @@ body {
 
   .contact-right {
     text-align: left; /* Align email title to the start of the form */
-    flex: 1; /* Take available space */
+    flex: 0 0 auto; /* Prevent over-expansion */
     min-width: 120px; /* Ensure enough space for email title and form */
     display: flex;
     flex-direction: column; /* Stack title and form vertically */
     align-items: flex-start; /* Align content to the start (left) of the form */
+    margin-right: 0.5rem; /* Prevent form from touching edge */
   }
 
   .contact-right h2 {
@@ -811,13 +813,14 @@ body {
   }
 
   .contact-right form {
-    width: 200px; /* Fixed width to prevent spanning entire footer */
+    width: 180px; /* Slightly smaller width to prevent overflow */
     padding: 0.4rem; /* Smaller padding */
     background-color: white;
     border-radius: 6px; /* Slightly smaller border radius */
     display: flex;
     align-items: center;
     margin-top: 0.5rem; /* Space above form */
+    box-sizing: border-box; /* Prevent overflow */
   }
 
   .contact-right input {
@@ -1010,6 +1013,8 @@ body {
     align-items: flex-start; /* Align items to top */
     gap: 0.5rem; /* Reduced gap */
     background-color: #59b014; /* Maintain green background */
+    flex-wrap: nowrap; /* Prevent wrapping */
+    box-sizing: border-box; /* Prevent overflow */
   }
 
   .contact-left {
@@ -1027,26 +1032,28 @@ body {
 
   .contact-right {
     text-align: left; /* Align email title to the start of the form */
-    flex: 1; /* Take available space */
+    flex: 0 0 auto; /* Prevent over-expansion */
     min-width: 100px; /* Ensure enough space for email title and form */
     display: flex;
     flex-direction: column; /* Stack title and form vertically */
     align-items: flex-start; /* Align content to the start (left) of the form */
+    margin-right: 0.3rem; /* Reduced margin to prevent overflow */
   }
 
   .contact-right h2 {
-    font-size: 0.7rem; /* Even smaller font size for very small screens */
+    font-size: 0.65rem; /* Even smaller font size for very small screens */
     color: black;
     margin: 0 0 0.4rem 0.3rem; /* Align with form padding */
     line-height: 1.2; /* Ensure no extra vertical space */
   }
 
   .contact-right form {
-    width: 140px; /* Smaller fixed width to prevent spanning entire footer */
+    width: 120px; /* Further reduced width to prevent overflow */
     padding: 0.3rem; /* Smaller padding */
     background-color: white;
     border-radius: 6px;
     margin-top: 0.4rem; /* Reduced space above form */
+    box-sizing: border-box; /* Prevent overflow */
   }
 
   .contact-right input {
