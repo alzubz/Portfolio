@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Student Management</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" />
+  <style>
+    body {
+      background-color: #0d1f1a;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 40px 0;
+      color: white;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .header-button {
+      background: linear-gradient(to bottom, #4a6a5a, #1f3a31);
+      border: none;
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      cursor: pointer;
+      margin: 5px;
+    }
+    .header-button:hover {
+      background: linear-gradient(to bottom, #3f5f50, #193027);
+    }
+    .table-container {
+      background: linear-gradient(to bottom, #4a6a5a, #1f3a31);
+      border-radius: 20px;
+      overflow: hidden;
+      padding: 0;
+      margin-top: 20px;
+    }
+    .table-container table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .table-container thead {
+      background: transparent;
+      color: white;
+      font-weight: bold;
+    }
+    .table-container th, .table-container td {
+      padding: 15px 20px;
+      text-align: left;
+      border: none;
+      font-size: 15px;
+    }
+    .table-container tbody tr:hover {
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+    .modal-content {
+      background: linear-gradient(to bottom, #4a6a5a, #1f3a31);
+      border: none;
+      border-radius: 12px;
+      color: white;
+    }
+    .footer {
+      background: linear-gradient(to bottom, #4a6a5a, #1f3a31);
+      color: white;
+      border-radius: 10px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body class="container mt-4">
+
+  <!-- Header Buttons -->
+  <div class="header">
+    <button class="header-button">📘 Student Management</button>
+    <button class="header-button" data-bs-toggle="modal" data-bs-target="#addStudentModal">+ Add Student</button>
+  </div>
+
+  <!-- Student Table -->
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Course</th>
+          <th>Created At</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="studentTableBody">
+        <!-- Sample Row -->
+        <tr>
+          <td>1</td>
+          <td>Jane Doe</td>
+          <td>Computer Science</td>
+          <td>2025-09-30</td>
+          <td>
+            <button class="btn btn-warning btn-sm editBtn" data-id="1" data-name="Jane Doe" data-course="Computer Science">Edit</button>
+            <button class="btn btn-danger btn-sm deleteBtn" data-id="1" data-name="Jane Doe">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Add Student Modal -->
+  <div class="modal fade" id="addStudentModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <form id="addStudentForm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Add Student</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label class="form-label">Name</label>
+              <input type="text" name="name" class="form-control" required />
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Course</label>
+              <input type="text" name="course" class="form-control" required />
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-success">Add</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Edit Student Modal -->
+  <div class="modal fade" id="editStudentModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <form id="editStudentForm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Edit Student</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <input type="hidden" id="editStudentId" />
+            <div class="mb-3">
+              <label class="form-label">Name</label>
+              <input type="text" id="editStudentName" class="form-control" required />
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Course</label>
+              <input type="text" id="editStudentCourse" class="form-control" required />
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Update</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Handle Add
+      document.getElementById('addStudentForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = this.name.value.trim();
+        const course = this.course.value.trim();
+        if (name && course) {
+          Swal.fire({
+            title: 'Confirm Creation',
+            text: 'Do you want to create this student?',
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonText: 'Create',
+            cancelButtonText: 'Cancel',
+            confirmButtonColor: '#28a745',
+            cancelButtonColor: '#d33'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              const table = document.getElementById('studentTableBody');
+              const row = table.insertRow(0);
+              const id = table.rows.length;
+              const now = new Date().toISOString().split('T')[0];
+              row.innerHTML = `
+                <td>${id}</td>
+                <td>${name}</td>
+                <td>${course}</td>
+                <td>${now}</td>
+                <td>
+                  <button class="btn btn-warning btn-sm editBtn" data-id="${id}" data-name="${name}" data-course="${course}">Edit</button>
+                  <button class="btn btn-danger btn-sm deleteBtn" data-id="${id}" data-name="${name}">Delete</button>
+                </td>`;
+              this.reset();
+              const modal = bootstrap.Modal.getInstance(document.getElementById('addStudentModal'));
+              modal.hide();
+              Swal.fire('Success', 'Student added successfully!', 'success');
+            }
+          });
+        }
+      });
+
+      // Handle Edit
+      document.getElementById('studentTableBody').addEventListener('click', function(e) {
+        if (e.target.classList.contains('editBtn')) {
+          const btn = e.target;
+          const id = btn.dataset.id;
+          const name = btn.dataset.name;
+          const course = btn.dataset.course;
+
+          document.getElementById('editStudentId').value = id;
+          document.getElementById('editStudentName').value = name;
+          document.getElementById('editStudentCourse').value = course;
+
+          new bootstrap.Modal(document.getElementById('editStudentModal')).show();
+        }
+
+        if (e.target.classList.contains('deleteBtn')) {
+          const row = e.target.closest('tr');
+          const name = e.target.dataset.name;
+
+          Swal.fire({
+            title: 'Confirm Deletion',
+            html: `Are you sure you want to delete <strong>${name}</strong>?`,
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Delete',
+            cancelButtonText: 'Cancel',
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              row.remove();
+              Swal.fire('Deleted!', `${name} has been removed.`, 'success');
+            }
+          });
+        }
+      });
+
+      document.getElementById('editStudentForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const id = document.getElementById('editStudentId').value;
+        const name = document.getElementById('editStudentName').value.trim();
+        const course = document.getElementById('editStudentCourse').value.trim();
+
+        if (name && course) {
+          Swal.fire({
+            title: 'Confirm Update',
+            text: 'Are you sure you want to update this student?',
+            icon: 'info',
+            showCancelButton: true,
+            confirmButtonText: 'Update',
+            cancelButtonText: 'Cancel',
+            confirmButtonColor: '#28a745',
+            cancelButtonColor: '#d33'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              const rows = document.querySelectorAll('#studentTableBody tr');
+              rows.forEach(row => {
+                if (row.cells[0].innerText == id) {
+                  row.cells[1].innerText = name;
+                  row.cells[2].innerText = course;
+                  row.querySelector('.editBtn').dataset.name = name;
+                  row.querySelector('.editBtn').dataset.course = course;
+                  row.querySelector('.deleteBtn').dataset.name = name;
+                }
+              });
+              const modal = bootstrap.Modal.getInstance(document.getElementById('editStudentModal'));
+              modal.hide();
+              Swal.fire('Updated!', 'Student record updated.', 'success');
+            }
+          });
+        }
+      });
+    });
+  </script>
+
+  <!-- Footer -->
+  <footer class="footer text-center mt-5 py-3">
+    <div class="container">
+      <p class="mb-0">© <span id="currentYear"></span> Student Management System</p>
+    </div>
+  </footer>
+  <script>
+    document.getElementById("currentYear").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
